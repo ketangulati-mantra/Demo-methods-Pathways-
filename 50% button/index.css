@@ -1,0 +1,47 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+
+  background: #FFFFFF;
+  border: 1px solid rgb(22 163 74 / 0.35);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.7) inset,
+    0 1px 2px rgb(22 163 74 / 0.10),
+    0 6px 16px rgb(22 163 74 / 0.22);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1px;
+  color: rgb(22 163 74);
+  white-space: nowrap;
+
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 216, 204, .6) 45%, transparent 60%);
+  background-size: 250% 100%;
+  animation: shine 3.2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.badge svg { flex-shrink: 0; }
+.badge strong { font-weight: 800; color: rgb(22 163 74); }
+
+@keyframes shine {
+  0%   { background-position: 200% 0; }
+  35%  { background-position: -40% 0; }
+  100% { background-position: -40% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge::after { animation: none; }
+}
