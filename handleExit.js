@@ -11,17 +11,17 @@ export function handleExit() {
     return;
   }
 
-  // 2. iframe inside provider.mantracare.com
+  // 2. iframe inside web.mantracare.com
   if (window.parent !== window) {
     window.parent.postMessage(
       {
         action: "exit",
-      },
-      "https://provider.mantracare.com"
+      },    
+      "https://web.mantracare.com"
     );
     return;
   }
 
   // 3. Standalone browser
-  window.location.href = "https://provider.mantracare.com/tasks";
+  window.location.href = "https://web.mantracare.com/tasks";
 }
